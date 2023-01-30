@@ -17,7 +17,7 @@ modules:
   - name: basic-resource-group
     module_type: terraform
     source:
-      source_type: git
+      source_type: github
       git:
         git_repo_url: "https://github.com/Cloud-Schematics/blueprint-example-modules/tree/main/IBM-DefaultResourceGroup"
         git_branch: main
@@ -30,7 +30,7 @@ modules:
   - name: basic-cos-storage
     module_type: terraform
     source:
-      source_type: git
+      source_type: github
       git:
         git_repo_url: "https://github.com/Cloud-Schematics/blueprint-example-modules/tree/main/IBM-Storage"
         git_branch: main
