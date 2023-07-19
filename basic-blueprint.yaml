@@ -4,12 +4,6 @@ name: "Blueprint Basic Example"
 type: "blueprint"
 schema_version: "1.0.0"
 description: "Simple blueprint to demonstrate module linking"
-inputs:
-  - name: cos_instance_name
-  - name: cos_storage_plan
-outputs:
-  - name: cos_id
-    value: $module.basic-cos-storage.outputs.cos_id
 settings:
   - name: TF_VERSION
     value: 1.0
@@ -19,7 +13,7 @@ modules:
     source:
       source_type: github
       git:
-        git_repo_url: "https://github.com/Cloud-Schematics/blueprint-example-modules/tree/main/IBM-DefaultResourceGroup"
+        git_repo_url: "https://github.com/sanjana-soni16/blueprint-example-modules/tree/main/IBM-DefaultResourceGroup"
         git_branch: main
     inputs:
       - name: any
@@ -32,17 +26,9 @@ modules:
     source:
       source_type: github
       git:
-        git_repo_url: "https://github.com/Cloud-Schematics/blueprint-example-modules/tree/main/IBM-Storage"
+        git_repo_url: "https://github.com/sanjana-soni16/blueprint-example-modules/tree/main/IBM-Storage"
         git_branch: main
     inputs:
-      - name: cos_instance_name
-        value: $blueprint.cos_instance_name
-      - name: cos_storage_plan
-        value: $blueprint.cos_storage_plan
-      - name: cos_single_site_loc
-        value: "ams03"
       - name: resource_group_id
         value: $module.basic-resource-group.outputs.resource_group_id
     outputs:
-      - name: cos_id
-      - name: cos_crn
